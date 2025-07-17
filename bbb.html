@@ -224,64 +224,52 @@ a.map-link:hover {
   transform: scale(1.05);
 }
 
-    .cloud {
+.cloud, .cloudReverse {
   position: absolute;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  filter: blur(2px);
+  filter: blur(6px);
   z-index: 1;
   animation: moveCloud linear infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    -40px 0 0 -10px rgba(255,255,255,0.9),
+    40px 0 0 -10px rgba(255,255,255,0.9),
+    -20px 20px 0 -10px rgba(255,255,255,0.9),
+    20px 20px 0 -10px rgba(255,255,255,0.9),
+    0 -20px 0 -10px rgba(255,255,255,0.9);
 }
 
+/* Прибери cloud::after — він зайвий з новим дизайном */
+.cloud::after, .cloudReverse::after {
+  display: none;
+}
 
-    .cloud::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  top: -8px;
-  left: 8px;
+.cloudReverse {
+  animation: moveCloudReverse linear infinite;
 }
 
 
     /* Хмари */
     .cloud1  { width: 200px; height: 100px; top: 10%; left: -25%; animation-duration: 50s; }
-       .cloud6  { width: 220px; height: 110px; top: 80%; left: -32%; animation-duration: 65s; animation-delay: 12s; }
+       .cloud6  { width: 220px; height: 110px; top: 80%; left: -32%; animation-duration: 65s; animation-delay: 0s; }
     .cloud7  { width: 160px; height: 90px;  top: 30%; left: -28%; animation-duration: 45s; animation-delay: 4s; }
     .cloud8  { width: 140px; height: 70px;  top: 50%; left: -18%; animation-duration: 35s; animation-delay: 2s; }
-    .cloud9  { width: 210px; height: 105px; top: 15%; left: -38%; animation-duration: 58s; animation-delay: 8s; }
-    .cloud10 { width: 170px; height: 85px;  top: 85%; left: -22%; animation-duration: 48s; animation-delay: 6s; }
-    .cloud11 { width: 230px; height: 115px; top: 55%; left: -45%; animation-duration: 62s; animation-delay: 11s; }
+    .cloud9  { width: 210px; height: 105px; top: 15%; left: -38%; animation-duration: 58s; animation-delay: 0s; }
+    .cloud10 { width: 170px; height: 85px;  top: 85%; left: -22%; animation-duration: 48s; animation-delay: 0s; }
+    .cloud11 { width: 230px; height: 115px; top: 55%; left: -45%; animation-duration: 62s; animation-delay: 10s; }
     .cloud12 { width: 120px; height: 60px;  top: 35%; left: -15%; animation-duration: 38s; animation-delay: 3s; }
+.cloud13 { width: 180px; height: 90px; top: 25%; left: -20%; animation-duration: 55s; animation-delay: 3s; }
+.cloud14 { width: 150px; height: 75px; top: 60%; left: -30%; animation-duration: 47s; animation-delay: 5s; }
+.cloud15 { width: 210px; height: 100px; top: 40%; left: -35%; animation-duration: 63s; animation-delay: 0s; }
+.cloud16 { width: 130px; height: 70px; top: 70%; left: -25%; animation-duration: 42s; animation-delay: 3s; }
+.cloud17 { width: 240px; height: 120px; top: 5%; left: -40%; animation-duration: 68s; animation-delay: 0s; }
+
 
     @keyframes moveCloud {
       0%   { transform: translateX(0) translateY(0); }
       50%  { transform: translateX(120vw) translateY(15px); }
       100% { transform: translateX(0) translateY(0); }
     }
-.cloudReverse {
-  position: absolute;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 50%;
-  filter: blur(2px);
-  z-index: 1;
-  animation: moveCloudReverse linear infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-.cloudReverse::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  top: -8px;
-  left: 8px;
-}
 
 @keyframes moveCloudReverse {
   0%   { transform: translateX(0) translateY(0); }
@@ -292,13 +280,18 @@ a.map-link:hover {
 /* Розміщення 9 хмар справа */
 .cloudR1  { width: 210px; height: 110px; top: 12%; right: -28%; animation-duration: 52s; }
 .cloudR2  { width: 140px; height: 75px;  top: 45%; right: -25%; animation-duration: 42s; animation-delay: 6s; }
-.cloudR3  { width: 240px; height: 100px; top: 68%; right: -30%; animation-duration: 58s; animation-delay: 9s; }
+.cloudR3  { width: 240px; height: 100px; top: 68%; right: -30%; animation-duration: 58s; animation-delay: 0s; }
 .cloudR4  { width: 110px; height: 65px;  top: 22%; right: -18%; animation-duration: 28s; }
 .cloudR5  { width: 190px; height: 95px;  top: 62%; right: -38%; animation-duration: 57s; animation-delay: 5s; }
-.cloudR6  { width: 230px; height: 120px; top: 78%; right: -34%; animation-duration: 63s; animation-delay: 13s; }
+.cloudR6  { width: 230px; height: 120px; top: 78%; right: -34%; animation-duration: 63s; animation-delay: 0s; }
 .cloudR7  { width: 150px; height: 85px;  top: 28%; right: -26%; animation-duration: 46s; animation-delay: 3s; }
 .cloudR8  { width: 130px; height: 60px;  top: 52%; right: -20%; animation-duration: 34s; animation-delay: 1s; }
-.cloudR9  { width: 220px; height: 100px; top: 18%; right: -40%; animation-duration: 60s; animation-delay: 7s; }
+.cloudR9  { width: 220px; height: 100px; top: 18%; right: -40%; animation-duration: 60s; animation-delay: 0s; }
+.cloudR10 { width: 170px; height: 85px; top: 38%; right: -32%; animation-duration: 48s; animation-delay: 4s; }
+.cloudR11 { width: 150px; height: 70px; top: 10%; right: -20%; animation-duration: 36s; animation-delay: 0s; }
+.cloudR12 { width: 230px; height: 115px; top: 75%; right: -37%; animation-duration: 61s; animation-delay: 0s; }
+.cloudR13 { width: 140px; height: 65px; top: 55%; right: -27%; animation-duration: 39s; animation-delay: 6s; }
+.cloudR14 { width: 200px; height: 100px; top: 48%; right: -42%; animation-duration: 54s; animation-delay: 0s; }
 
 #invite, #date {
   text-align: center;
@@ -370,6 +363,17 @@ a.map-link:hover {
 <div class="cloudReverse cloudR7"></div>
 <div class="cloudReverse cloudR8"></div>
 <div class="cloudReverse cloudR9"></div>
+<div class="cloud cloud13"></div>
+<div class="cloud cloud14"></div>
+<div class="cloud cloud15"></div>
+<div class="cloud cloud16"></div>
+<div class="cloud cloud17"></div>
+
+<div class="cloudReverse cloudR10"></div>
+<div class="cloudReverse cloudR11"></div>
+<div class="cloudReverse cloudR12"></div>
+<div class="cloudReverse cloudR13"></div>
+<div class="cloudReverse cloudR14"></div>
 
 
   <!-- Старт -->
@@ -393,15 +397,16 @@ a.map-link:hover {
   <section class="section" id="invite">
     <h1>Запрошення<br>
       на Гендер Паті</h1>
-    <p>Дорогі друзі та родичі! Ми раді запросити вас на святкування нашого гендер-паті. Разом дізнаємося, хто ж народиться у нашій родині!</p>
+    <p>Ми з нетерпінням чекаємо на наше маленьке диво —
+але поки не знаємо, хто це буде: хлопчик чи дівчинка 💙💗
+Тож ми хочемо розділити цю чарівну мить разом!</p>
   </section>
 
   <!-- Дата -->
 <section class="section" id="date">
-  <h2>Дата</h2>
-  <p>8 серпня 2025 року<br>
-    <strong>Початок о 15:00</strong></p>
-  </section>
+  <h2>8 серпня 2025 року<br>
+    Початок о 15:00</h2>
+    </section>
 
 
   <!-- Місце -->
@@ -423,7 +428,11 @@ a.map-link:hover {
     <img src="https://ideia.ua/storage/products/images/big/10019.jpg?v=1501669170" alt="Дрес-код фото 1" />
     <img src="https://tkani-atlas.com.ua/assets/images/products/41248/59210f7f92646eeaeb8b177ecfcdac531d839ac3.webp" alt="Дрес-код фото 2" />
   </div>
-  <p>Будь ласка, одягайтеся у пастельні відтінки молочного або білого для фото та гарного настрою!</p>
+  <p><strong>Dress code: світло, ніжно, по-особливому</strong><br>
+
+Ми хочемо, щоб цей день був наповнений легкістю, теплом і світлом — саме таким, як очікування дива.
+Тому будемо раді, якщо ви оберете образи в білих, молочних або дуже світлих пастельних відтінках:
+кремовий, айворі, шампань, світло-бежевий, слонова кістка<br>🕊</p>
 </section>
 
 
