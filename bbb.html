@@ -285,7 +285,9 @@ a.map-link:hover {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: hidden; /* заборона горизонтального скролу */
+  min-height: 100vh;  /* щоб body займав всю висоту */
+  overflow-y: auto;   /* вертикальний скрол, якщо потрібно */
 }
 
 @keyframes moveCloudReverse {
