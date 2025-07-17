@@ -486,6 +486,12 @@ a.map-link:hover {
       }, 1500);
     });
 
+    window.addEventListener('scroll', () => {
+  if (window.scrollX !== 0) {
+    window.scrollTo(0, window.scrollY);
+  }
+});
+
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
