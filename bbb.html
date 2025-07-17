@@ -74,7 +74,7 @@
   z-index: 10;
   margin-top: 0;
   padding: 0.6rem 1.2rem;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   border: 1px solid black;
   background: white;
@@ -204,7 +204,11 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+  /* Додатково: зробимо, щоб ширина і висота завжди співпадали */
+  aspect-ratio: 1 / 1;
 }
+
 
     a.map-link {
   display: inline-block;
@@ -338,20 +342,36 @@ a.map-link:hover {
   color: white !important;
 }
 #date h2 {
-  background-color: rgba(245, 240, 230, 0.3);    /* кремовий фон */
+  
   display: inline-block; /* щоб фон обтікався тільки текстом */
   padding: 0.5rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 3.7rem; /* якщо треба */
+
+  font-size: 3.5rem; /* якщо треба */
 }
 
 #invite {
-  margin-bottom: -20rem; /* зменшуємо відступ знизу */
+  margin-bottom: -10; /* додай, якщо потрібно */
+  padding-bottom: -10; /* для безпечності */
+}
+
+#invite {
+  margin-top: -12rem;  /* підняти запрошення */
 }
 
 #date {
-  margin-top: -20rem; /* зменшуємо відступ зверху */
+  margin-top: -12rem;  /* підняти дату */
+}
+
+#venue {
+  margin-top: -6rem;  /* підняти місце проведення */
+}
+#wishes {
+  margin-top: -15rem; /* підняти секцію ближче до попередньої */
+}
+
+#dress {
+  margin-top: -5rem; /* зменшуємо відступ знизу */
 }
 
 body, h1, h2, h3, p, .question, a, button {
@@ -365,6 +385,13 @@ body, h1, h2, h3, p, .question, a, button {
 
 #date h2 {
   font-size: 3,5rem;
+}
+
+#date h2 .time {
+  font-family: 'Cormorant Garamond';
+  /* Можеш додати додаткові стилі, наприклад: */
+  font-weight: 600;
+  font-size: 3.5rem;
 }
 
   </style>
@@ -437,9 +464,8 @@ body, h1, h2, h3, p, .question, a, button {
 
   <!-- Дата -->
 <section class="section" id="date">
-  <h2>8 серпня 2025 року<br>
-    16:00</h2>
-    </section>
+  <h2>8 серпня 2025 року<br><span class="time">16:00</span></h2>
+</section>
 
   <!-- Місце -->
 <section class="section venue" id="venue">
@@ -454,12 +480,12 @@ body, h1, h2, h3, p, .question, a, button {
 
   <!-- Дрес-код -->
 <section class="section dress" id="dress">
-  <br><h2>Дрес-код</h2>
+  <h2>Дрес-код</h2>
   <p><br><strong>Світло, ніжно, по-особливому...</strong><br>
 
 Ми хочемо, щоб цей день був наповнений легкістю, теплом і світлом — саме таким, як очікування дива.
 Тому будемо раді, якщо ви оберете образи в білих, молочних або дуже світлих пастельних відтінках:
-кремовий, айворі, шампань, світло-бежевий, слонова кістка.<br>🕊</p><br>
+кремовий, айворі, шампань, світло-бежевий, слонова кістка.</p><br>
 <div class="dress-images">
     <img src="https://ideia.ua/storage/products/images/big/10019.jpg?v=1501669170" alt="Дрес-код фото 1" />
     <img src="https://tkani-atlas.com.ua/assets/images/products/41248/59210f7f92646eeaeb8b177ecfcdac531d839ac3.webp" alt="Дрес-код фото 2" />
