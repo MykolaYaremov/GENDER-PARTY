@@ -55,16 +55,24 @@
     }
 
     #start {
-      position: relative;
-      background: transparent;
-      opacity: 1 !important;
-      transform: none !important;
-    }
+  position: relative;
+  height: 100vh;
+  background: transparent;
+  opacity: 1 !important;
+  transform: none !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem; /* щоб не прилипало до країв */
+}
+
 
  #openBtn {
-  position: relative;    /* додати позицію */
-  z-index: 10;           /* щоб була поверх кульок */
-  margin-top: -7.5rem;     /* відступ зверху */
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
   padding: 0.6rem 1.2rem;
   font-size: 1.2rem;
   cursor: pointer;
@@ -76,6 +84,7 @@
   transition: transform 0.3s;
   font-family: 'Cormorant Garamond', serif;
 }
+
 
 
 
