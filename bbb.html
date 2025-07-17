@@ -199,9 +199,10 @@
 }
 
 .dress-images img {
-  width: 300px;  /* або інший розмір */
-  height: auto;
-  border-radius: 8px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
@@ -228,7 +229,7 @@ a.map-link:hover {
   position: absolute;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  filter: blur(6px);
+  filter: blur(12px);
   z-index: 1;
   animation: moveCloud linear infinite;
   box-shadow:
@@ -333,13 +334,24 @@ a.map-link:hover {
     padding: 0.5rem 1rem;
   }
 }
+.map-link {
+  color: white !important;
+}
+#date h2 {
+  background-color: rgba(245, 240, 230, 0.3);    /* кремовий фон */
+  display: inline-block; /* щоб фон обтікався тільки текстом */
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 3.7rem; /* якщо треба */
+}
 
-.dress-images img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+#invite {
+  margin-bottom: -20rem; /* зменшуємо відступ знизу */
+}
+
+#date {
+  margin-top: -20rem; /* зменшуємо відступ зверху */
 }
 
 body, h1, h2, h3, p, .question, a, button {
@@ -352,7 +364,7 @@ body, h1, h2, h3, p, .question, a, button {
 }
 
 #date h2 {
-  font-size: 4rem;
+  font-size: 3,7rem;
 }
 
   </style>
@@ -437,24 +449,23 @@ body, h1, h2, h3, p, .question, a, button {
   </div>
   <p><strong>Ресторан AlFresco</strong><br>Обухівське шоссе, 6, Ходосівка, Київська область</p>
 
-  <a class="map-link" href="https://www.google.com/maps/place/AlFresco/@50.2905394,30.4565968,12.5z/data=!4m6!3m5!1s0x40d4b9fd6035b701:0x1758d0318fd9cd21!8m2!3d50.2748116!4d30.5341164!16s%2Fg%2F11p0vc_8qr?entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Переглянути на мапі</a>
+  <a class="map-link" href="https://www.google.com/maps/place/AlFresco/@50.2905394,30.4565968,12.5z/data=!4m6!3m5!1s0x40d4b9fd6035b701:0x1758d0318fd9cd21!8m2!3d50.2748116!4d30.5341164!16s%2Fg%2F11p0vc_8qr?entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Переглянути на мапі</a><br>
 </section>
 
   <!-- Дрес-код -->
 <section class="section dress" id="dress">
-  <h2>Дрес-код</h2>
-  <div class="dress-images">
-    <img src="https://ideia.ua/storage/products/images/big/10019.jpg?v=1501669170" alt="Дрес-код фото 1" />
-    <img src="https://tkani-atlas.com.ua/assets/images/products/41248/59210f7f92646eeaeb8b177ecfcdac531d839ac3.webp" alt="Дрес-код фото 2" />
-    <img src="https://textileplaza.com.ua/assets/images/items/21699/0952157001516185866.JPG" alt="Дрес-код фото 3" />
-    <img src="https://recommerce.com.ua/static/evelina.reshop.com.ua/catalog/2060/19472620285f0245464fff2_medium.jpg" alt="Дрес-код фото 4" />
-  </div>
-
-  <p><br><strong>Dress code: світло, ніжно, по-особливому</strong><br>
+  <br><h2>Дрес-код</h2>
+  <p><br><strong>Світло, ніжно, по-особливому...</strong><br>
 
 Ми хочемо, щоб цей день був наповнений легкістю, теплом і світлом — саме таким, як очікування дива.
 Тому будемо раді, якщо ви оберете образи в білих, молочних або дуже світлих пастельних відтінках:
-кремовий, айворі, шампань, світло-бежевий, слонова кістка.<br>🕊</p>
+кремовий, айворі, шампань, світло-бежевий, слонова кістка.<br>🕊</p><br>
+<div class="dress-images">
+    <img src="https://ideia.ua/storage/products/images/big/10019.jpg?v=1501669170" alt="Дрес-код фото 1" />
+    <img src="https://tkani-atlas.com.ua/assets/images/products/41248/59210f7f92646eeaeb8b177ecfcdac531d839ac3.webp" alt="Дрес-код фото 2" />
+    <img src="https://textileplaza.com.ua/assets/images/items/21699/0952157001516185866.JPG" alt="Дрес-код фото 3" />
+      </div>
+
 </section>
 
 
