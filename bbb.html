@@ -10,15 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cormorant Garamond', serif;
-  background: linear-gradient(to bottom, #f2c6d3, #aacce6);
-  position: relative;
-  font-size: 30px;
-  line-height: 1.7;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    background: linear-gradient(to bottom, #f2c6d3, #aacce6);
+
+      position: relative;
+      font-size: 30px;
+      line-height: 1.7;
+    }
 
     h1, h2, h3, .question {
       font-family: 'Great Vibes', cursive !important;
@@ -30,6 +32,7 @@ body {
     h1, h2, h3 {
   font-size: 3rem;  /* всі однакового розміру */
 }
+
 
     section {
   min-height: 100vh;
@@ -179,14 +182,15 @@ body {
 }
 
 .venue-photo img {
-  max-width: 100%;
-  width: 100%;
+  display: block; /* прибирає зайві пробіли навколо img */
+  margin: 0 auto; /* центрує саме зображення */
+  width: 110%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  display: block;
-  margin: 0 auto;
 }
+
+
    .dress-images {
   display: flex;
   gap: 1rem; /* відступ між зображеннями */
@@ -462,12 +466,6 @@ a.map-link:hover {
         scrollHint.classList.add('visible');
       }, 1500);
     });
-
-    window.addEventListener('scroll', () => {
-  if (window.scrollX !== 0) {
-    window.scrollTo(0, window.scrollY);
-  }
-});
 
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
