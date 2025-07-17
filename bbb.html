@@ -24,6 +24,13 @@ body {
   font-size: 30px;
   line-height: 1.7;
 }
+html, body {
+  overflow-x: hidden;  /* Заборонити горизонтальний скрол */
+  width: 100vw;         /* Обмежити ширину вікна */
+  margin: 0;            /* Вилучити зовнішні відступи */
+  padding: 0;           /* Вилучити внутрішні відступи */
+  box-sizing: border-box; /* Щоб padding і border не розширювали елементи */
+}
 
     h1, h2, h3, .question {
       font-family: 'Great Vibes', cursive !important;
