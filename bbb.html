@@ -34,6 +34,13 @@
   font-size: 3rem;  /* всі однакового розміру */
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  clip-path: inset(0 0 0 0);
+  pointer-events: none;
+}
 
     section {
   min-height: 100vh;
