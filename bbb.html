@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Запрошення на Гендер Паті</title>
+
+  <!-- Шрифти -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    background: linear-gradient(to bottom, #f2c6d3, #aacce6);
+
+
+      position: relative;
+      font-size: 30px;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, .question {
+      font-family: 'Great Vibes', cursive !important;
+      font-weight: 400; /* однакова товщина */
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    h1 { font-size: 4rem; }       /* було 3rem */
+    h2 { font-size: 3rem; }       /* було 2.5rem */
+    h3 { font-size: 2.5rem; }     /* було 2rem */
+
+    section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #start {
+      position: relative;
+      background: transparent;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+ #openBtn {
+  position: relative;    /* додати позицію */
+  z-index: 10;           /* щоб була поверх кульок */
+  margin-top: -20.5rem;     /* відступ зверху */
+  padding: 0.6rem 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  border-radius: 20px;
+  box-shadow: none;
+  transition: transform 0.3s;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+
+
+#openBtn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+    .balloon-wrapper {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      opacity: 1;
+      transition: opacity 0.6s ease-out, transform 1s ease-out;
+    }
+
+    .balloon-wrapper.left {
+  top: 25%;         /* трохи нижче центру */
+  left: 30%;        /* лівіше */
+  transform: translate(0, 0);  /* початкова позиція */
+}
+
+.balloon-wrapper.right {
+  top: 25%;         /* трохи нижче центру */
+  right: 30%;       /* правіше */
+  transform: translate(0, 0);  /* початкова позиція */
+}
+
+    .balloon-wrapper.launch {
+      opacity: 1;
+    }
+
+    .balloon-wrapper.launch.left {
+  transform: translate(-250px, -50px); /* Вгору та вліво */
+}
+
+.balloon-wrapper.launch.right {
+  transform: translate(250px, -50px);  /* Вгору та вправо */
+}
+
+    .balloon {
+      width: 400px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .question {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.7rem;
+  opacity: 0;
+  transition: opacity 2.5s ease-out;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
+  z-index: 4;
+}
+
+    .question.visible {
+      opacity: 1;
+    }
+
+    /* Новий блок "гортай вниз" */
+    #scrollHint {
+  position: absolute;
+  top: 80%;       /* або інше потрібне значення по вертикалі */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: #000000;
+  user-select: none;
+  z-index: 4;
+}
+
+
+    #scrollHint.visible {
+      opacity: 1;
+    }
+
+.venue-photo {
+  max-width: 600px; /* обмежуємо ширину фото ресторану */
+  margin: 0 auto 1rem auto; /* по центру і відступ знизу */
+}
+
+.venue-photo img {
+  width: 100%; /* фото підлаштовується під контейнер */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+   .dress-images {
+  display: flex;
+  gap: 1rem; /* відступ між зображеннями */
+  justify-content: center; /* по центру */
+  flex-wrap: wrap; /* щоб на маленьких екранах картинки могли переноситись */
+}
+
+.dress-images img {
+  width: 300px;  /* або інший розмір */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+    a.map-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #0047ab;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+a.map-link:hover {
+  background: #e0559d;
+  transform: scale(1.05);
+}
+
+
+    .cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 1;
+  animation: moveCloud linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+
+    .cloud::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  top: -8px;
+  left: 8px;
+}
+
+
+    /* Хмари */
+    .cloud1  { width: 200px; height: 100px; top: 10%; left: -25%; animation-duration: 50s; }
+       .cloud6  { width: 220px; height: 110px; top: 80%; left: -32%; animation-duration: 65s; animation-delay: 12s; }
+    .cloud7  { width: 160px; height: 90px;  top: 30%; left: -28%; animation-duration: 45s; animation-delay: 4s; }
+    .cloud8  { width: 140px; height: 70px;  top: 50%; left: -18%; animation-duration: 35s; animation-delay: 2s; }
+    .cloud9  { width: 210px; height: 105px; top: 15%; left: -38%; animation-duration: 58s; animation-delay: 8s; }
+    .cloud10 { width: 170px; height: 85px;  top: 85%; left: -22%; animation-duration: 48s; animation-delay: 6s; }
+    .cloud11 { width: 230px; height: 115px; top: 55%; left: -45%; animation-duration: 62s; animation-delay: 11s; }
+    .cloud12 { width: 120px; height: 60px;  top: 35%; left: -15%; animation-duration: 38s; animation-delay: 3s; }
+
+    @keyframes moveCloud {
+      0%   { transform: translateX(0) translateY(0); }
+      50%  { transform: translateX(120vw) translateY(15px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+.cloudReverse {
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 1;
+  animation: moveCloudReverse linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.cloudReverse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  top: -8px;
+  left: 8px;
+}
+
+@keyframes moveCloudReverse {
+  0%   { transform: translateX(0) translateY(0); }
+  50%  { transform: translateX(-120vw) translateY(15px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Розміщення 9 хмар справа */
+.cloudR1  { width: 210px; height: 110px; top: 12%; right: -28%; animation-duration: 52s; }
+.cloudR2  { width: 140px; height: 75px;  top: 45%; right: -25%; animation-duration: 42s; animation-delay: 6s; }
+.cloudR3  { width: 240px; height: 100px; top: 68%; right: -30%; animation-duration: 58s; animation-delay: 9s; }
+.cloudR4  { width: 110px; height: 65px;  top: 22%; right: -18%; animation-duration: 28s; }
+.cloudR5  { width: 190px; height: 95px;  top: 62%; right: -38%; animation-duration: 57s; animation-delay: 5s; }
+.cloudR6  { width: 230px; height: 120px; top: 78%; right: -34%; animation-duration: 63s; animation-delay: 13s; }
+.cloudR7  { width: 150px; height: 85px;  top: 28%; right: -26%; animation-duration: 46s; animation-delay: 3s; }
+.cloudR8  { width: 130px; height: 60px;  top: 52%; right: -20%; animation-duration: 34s; animation-delay: 1s; }
+.cloudR9  { width: 220px; height: 100px; top: 18%; right: -40%; animation-duration: 60s; animation-delay: 7s; }
+
+#invite, #date {
+  text-align: center;
+}
+
+#date p {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.section p {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.8rem; }
+  .question { font-size: 2.2rem; top: 40%; }
+  #openBtn { font-size: 1rem; padding: 0.4rem 1rem; margin-top: -6rem; }
+  .balloon { width: 250px; }
+
+  .venue-photo img,
+  .dress-images img {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .dress-images {
+    gap: 0.5rem;
+  }
+
+  #scrollHint {
+    font-size: 1.4rem;
+  }
+
+  #date p {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  .map-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Хмари -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="cloud cloud4"></div>
+  <div class="cloud cloud5"></div>
+  <div class="cloud cloud6"></div>
+  <div class="cloud cloud7"></div>
+  <div class="cloud cloud8"></div>
+  <div class="cloud cloud9"></div>
+  <div class="cloud cloud10"></div>
+  <div class="cloud cloud11"></div>
+  <div class="cloud cloud12"></div>
+
+<!-- Нові хмари, що рухаються справа наліво -->
+<!-- Зворотні хмари справа наліво -->
+<div class="cloudReverse cloudR1"></div>
+<div class="cloudReverse cloudR2"></div>
+<div class="cloudReverse cloudR3"></div>
+<div class="cloudReverse cloudR4"></div>
+<div class="cloudReverse cloudR5"></div>
+<div class="cloudReverse cloudR6"></div>
+<div class="cloudReverse cloudR7"></div>
+<div class="cloudReverse cloudR8"></div>
+<div class="cloudReverse cloudR9"></div>
+
+
+  <!-- Старт -->
+  <section id="start">
+    <button id="openBtn">Відкрити запрошення</button>
+    <div class="balloon-wrapper left" id="balloonWrapperLeft">
+  <img src="https://i.ibb.co/8D2wgM9C/balloon-left.png" alt="Кулька ліворуч" class="balloon" />
+</div>
+<div class="balloon-wrapper right" id="balloonWrapperRight">
+  <img src="https://i.ibb.co/67vNjdjN/balloon-right.png" alt="Кулька праворуч" class="balloon" />
+</div>
+    <div class="question" id="question">Хлопчик
+            чи
+                Дівчинка?</div>
+    <div id="scrollHint">
+      ⋮<br>гортай вниз
+    </div>
+  </section>
+
+  <!-- Текст запрошення -->
+  <section class="section" id="invite">
+    <h1>Запрошення на Гендер Паті</h1>
+    <p>Дорогі друзі та родичі! Ми раді запросити вас на святкування нашого гендер-паті. Разом дізнаємося, хто ж народиться у нашій родині!</p>
+  </section>
+
+  <!-- Дата -->
+<section class="section" id="date">
+  <h2>Дата</h2>
+  <p>8 серпня 2025 року, початок о 15:00</p>
+  </section>
+
+
+  <!-- Місце -->
+<section class="section venue" id="venue">
+  <h2>Місце проведення</h2>
+  <div class="venue-photo">
+    <img src="https://alfresco.com.ua/wp-content/uploads/2025/02/alfresco-rest-25.jpg" alt="Фото ресторану AlFresco" />
+  </div>
+  <p><strong>Ресторан AlFresco</strong><br>Обухівське шоссе, 6, Ходосівка, Київська область</p>
+
+  <a class="map-link" href="https://www.google.com/maps/place/AlFresco/@50.2905394,30.4565968,12.5z/data=!4m6!3m5!1s0x40d4b9fd6035b701:0x1758d0318fd9cd21!8m2!3d50.2748116!4d30.5341164!16s%2Fg%2F11p0vc_8qr?entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Переглянути на мапі</a>
+</section>
+
+
+  <!-- Дрес-код -->
+<section class="section dress" id="dress">
+  <h2>Дрес-код</h2>
+  <div class="dress-images">
+    <img src="https://ideia.ua/storage/products/images/big/10019.jpg?v=1501669170" alt="Дрес-код фото 1" />
+    <img src="https://tkani-atlas.com.ua/assets/images/products/41248/59210f7f92646eeaeb8b177ecfcdac531d839ac3.webp" alt="Дрес-код фото 2" />
+  </div>
+  <p>Будь ласка, одягайтеся у пастельні відтінки молочного або білого для фото та гарного настрою!</p>
+</section>
+
+
+
+  <!-- Побажання -->
+  <section class="section" id="wishes">
+    <h2>Ваші побажання</h2>
+    <p>З нетерпінням чекаємо ваших теплих слів та побажань для майбутнього малюка!</p>
+  </section>
+
+  <script>
+    const btn = document.getElementById('openBtn');
+    const leftWrapper = document.getElementById('balloonWrapperLeft');
+    const rightWrapper = document.getElementById('balloonWrapperRight');
+    const question = document.getElementById('question');
+    const scrollHint = document.getElementById('scrollHint');
+
+    btn.addEventListener('click', () => {
+      btn.style.visibility = 'hidden';
+;
+
+      leftWrapper.classList.add('launch', 'left');
+      rightWrapper.classList.add('launch', 'right');
+      setTimeout(() => question.classList.add('visible'), 1000);
+
+      // Показати "гортай вниз" через 3 секунди
+      setTimeout(() => {
+        scrollHint.classList.add('visible');
+      }, 1500);
+    });
+
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+  </script>
+</body>
+</html>
