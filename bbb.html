@@ -469,6 +469,22 @@ body, h1, h2, h3, p, .question, a, button {
   z-index: 3;
   transition: transform 1s ease-out;
 }
+* {
+  box-sizing: border-box;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
   </style>
 </head>
 <body>
