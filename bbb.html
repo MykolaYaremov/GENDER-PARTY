@@ -10,13 +10,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+
+body {
+  clip-path: inset(0 0 0 0);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Вертикальний скрол тільки тут */
+.content-wrapper {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 2;
+}
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Cormorant Garamond', serif;
-      overflow-x: hidden;
-    background: linear-gradient(to bottom, #f2c6d3, #aacce6);
 
+    background: linear-gradient(to bottom, #f1b8cc, #a6d0e7);
 
       position: relative;
       font-size: 30px;
@@ -312,7 +334,7 @@ a.map-link:hover {
   h2 { font-size: 3rem; }
   h3 { font-size: 3rem; }
   .question { font-size: 3rem; top: 40%; }
-  #openBtn { font-size: 1rem; padding: 0.4rem 1rem; transform: translateY(-4.2rem); }
+  #openBtn { font-size: 1rem; padding: 0.4rem 1rem; transform: translateY(-5.1rem); }
   .balloon { width: 250px; }
 
   .venue-photo img,
@@ -459,42 +481,25 @@ body, h1, h2, h3, p, .question, a, button {
 
   <!-- Хмари -->
   <div class="cloud cloud1"></div>
-  <div class="cloud cloud2"></div>
   <div class="cloud cloud3"></div>
   <div class="cloud cloud4"></div>
-  <div class="cloud cloud5"></div>
   <div class="cloud cloud6"></div>
-  <div class="cloud cloud7"></div>
-  <div class="cloud cloud8"></div>
-  <div class="cloud cloud9"></div>
-  <div class="cloud cloud10"></div>
   <div class="cloud cloud11"></div>
-  <div class="cloud cloud12"></div>
 
 <!-- Нові хмари, що рухаються справа наліво -->
 <!-- Зворотні хмари справа наліво -->
-<div class="cloudReverse cloudR1"></div>
 <div class="cloudReverse cloudR2"></div>
 <div class="cloudReverse cloudR3"></div>
-<div class="cloudReverse cloudR4"></div>
-<div class="cloudReverse cloudR5"></div>
-<div class="cloudReverse cloudR6"></div>
 <div class="cloudReverse cloudR7"></div>
 <div class="cloudReverse cloudR8"></div>
 <div class="cloudReverse cloudR9"></div>
 <div class="cloud cloud13"></div>
 <div class="cloud cloud14"></div>
-<div class="cloud cloud15"></div>
-<div class="cloud cloud16"></div>
 <div class="cloud cloud17"></div>
-
 <div class="cloudReverse cloudR10"></div>
-<div class="cloudReverse cloudR11"></div>
-<div class="cloudReverse cloudR12"></div>
-<div class="cloudReverse cloudR13"></div>
 <div class="cloudReverse cloudR14"></div>
 
-
+<div class="content-wrapper">
   <!-- Старт -->
   <section id="start">
     <button id="openBtn">Відкрити запрошення</button>
@@ -595,5 +600,6 @@ body, h1, h2, h3, p, .question, a, button {
     sections.forEach(sec => observer.observe(sec));
 
   </script>
+</div>
 </body>
 </html>
