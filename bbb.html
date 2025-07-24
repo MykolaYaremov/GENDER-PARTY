@@ -48,7 +48,6 @@
   z-index: 2;
 }
 
-
     section.visible {
       opacity: 1;
       transform: translateY(0);
@@ -116,13 +115,13 @@ will-change: transform; /* оптимізація */
       opacity: 1;
     }
 
-    .balloon-wrapper.launch.left {
-  transform: translate(-250px, -100px); /* Вгору та вліво */
+.balloon-wrapper.launch.left {
+  transform: translate(-25vw, -10vh); /* адаптивно і не ламає вікно */
+}
+.balloon-wrapper.launch.right {
+  transform: translate(25vw, -10vh);
 }
 
-.balloon-wrapper.launch.right {
-  transform: translate(250px, -100px);  /* Вгору та вправо */
-}
 
     .balloon {
       width: 400px;
