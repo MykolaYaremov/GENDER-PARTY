@@ -451,43 +451,11 @@ body, h1, h2, h3, p, .question, a, button {
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-.balloon-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden; /* важливо! обмежує тільки по горизонталі */
-  pointer-events: none; /* кульки не блокують кліки */
-  z-index: 2; /* або вище, якщо потрібно */
-}
-
-/* Кульки — позиціонування зберігається */
-.balloon-wrapper {
-  position: absolute;
-  top: 32%;
-  z-index: 3;
-  transition: transform 1s ease-out;
-}
-* {
-  box-sizing: border-box;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background: transparent;
-  z-index: 9999;
-  pointer-events: none;
-}
 
   </style>
 </head>
 <body>
+
   <!-- Хмари -->
   <div class="cloud cloud1"></div>
   <div class="cloud cloud2"></div>
@@ -529,15 +497,12 @@ body::before {
   <!-- Старт -->
   <section id="start">
     <button id="openBtn">Відкрити запрошення</button>
-      <!-- Контейнер, який обрізає кульки по ширині екрану -->
-  <div class="balloon-container">
     <div class="balloon-wrapper left" id="balloonWrapperLeft">
-      <img src="https://i.ibb.co/8D2wgM9C/balloon-left.png" alt="Кулька ліворуч" class="balloon" />
-    </div>
-    <div class="balloon-wrapper right" id="balloonWrapperRight">
-      <img src="https://i.ibb.co/67vNjdjN/balloon-right.png" alt="Кулька праворуч" class="balloon" />
-    </div>
-  </div>
+  <img src="https://i.ibb.co/8D2wgM9C/balloon-left.png" alt="Кулька ліворуч" class="balloon" />
+</div>
+<div class="balloon-wrapper right" id="balloonWrapperRight">
+  <img src="https://i.ibb.co/67vNjdjN/balloon-right.png" alt="Кулька праворуч" class="balloon" />
+</div>
     <div class="question" id="question">Хлопчик
             чи
                 Дівчинка?</div>
